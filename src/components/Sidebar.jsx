@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   CSidebar,
@@ -11,10 +11,15 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilSpeedometer, cilPuzzle } from '@coreui/icons';
-import { ChatContext } from '../Contexts/ChatContext'; // Adjust the path as needed
+import { StudentContext } from '../Contexts/StudentContext';
 
-const SimpleSidebar = () => {
-  const { threads } = useContext(ChatContext); // Access threads from ChatContext
+const SimpleSidebar = ( selectedThread ) => {
+  const { students } = useContext(StudentContext);
+  const [thisThreadID, setThisThreadID] = useState(selectedThread.studentId);
+
+  const handleThreadSelect = (studentId) => {
+	setThisThreadID(studentId);
+  };
 
   return (
     <CSidebar className="border-end" unfoldable>
@@ -32,7 +37,6 @@ const SimpleSidebar = () => {
           </CNavItem>
         </NavLink>
         <NavLink
-          to="/chat"
           className={({ isActive }) => (isActive ? 'font-bold underline' : '')}
         >
           <CNavGroup
@@ -42,18 +46,19 @@ const SimpleSidebar = () => {
               </>
             }
           >
-            {threads.length > 0 ? (
-              threads.map((thread) => (
+            {students.length > 0 ? (
+              students.map((student) => (
                 <NavLink
-                  key={thread.studentId}
-                  to={`/chat/${thread.studentId}`} // Adjust the route as needed
+                  key={student.studentId}
+                  to={`/thread/${thisThreadID}`}
                   className={({ isActive }) => (isActive ? 'font-bold' : '')}
+                  onClick={() => handleThreadSelect(student.studentId)}
                 >
                   <CNavItem href="#">
                     <span className="nav-icon">
                       <span className="nav-icon-bullet"></span>
                     </span>{' '}
-                    {thread.studentName || thread.studentId} {/* Display studentName or fallback to studentId */}
+                    {student.name}
                   </CNavItem>
                 </NavLink>
               ))

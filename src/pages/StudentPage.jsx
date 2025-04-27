@@ -3,7 +3,7 @@ import AddStudentForm from '../components/AddStudentForm.jsx';
 
 function StudentPage() {
   return (
-    <div className="p-4">
+    <div className="viewPositioning">
 	  <StudentTable/>
 	  <AddStudentForm />
     </div>

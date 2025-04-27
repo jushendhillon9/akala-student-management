@@ -9,7 +9,7 @@ export function StudentProvider({ children }) {
     {studentId: 2, name: 'Jacob', course: 'Physics', grade: 'B+', enrollmentDate: '2023-09-02', _cellProps: { studentId: { scope: 'row' } },},
     {studentId: 3, name: 'Larry', course: 'Chemistry', grade: 'A-', enrollmentDate: '2023-09-03', _cellProps: { studentId: { scope: 'row' } },},
     {studentId: 4, name: 'Sarah', course: 'Biology', grade: 'B', enrollmentDate: '2023-09-04', _cellProps: { studentId: { scope: 'row' } },},
-    {studentId: 5,name: 'Emma',course: 'History', grade: 'A', enrollmentDate: '2023-09-05', _cellProps: { studentId: { scope: 'row' } },},
+    {studentId: 5, name: 'Emma',course: 'History', grade: 'A', enrollmentDate: '2023-09-05', _cellProps: { studentId: { scope: 'row' } },},
     {studentId: 6, name: 'John', course: 'English', grade: 'B-', enrollmentDate: '2023-09-06', _cellProps: { studentId: { scope: 'row' } },},
   ]);
 

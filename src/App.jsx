@@ -3,7 +3,7 @@ import '@coreui/coreui/dist/css/coreui.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import SimpleSidebar from './components/Sidebar.jsx';
 import StudentPage from './pages/StudentPage.jsx';
-import ChatPage from './pages/ChatPage.jsx';
+import ThreadPage from './pages/ThreadPage.jsx';
 import { StudentProvider } from './Contexts/StudentContext.jsx';
 import { ChatProvider } from './Contexts/ChatContext.jsx';
 import './App.css'
@@ -18,7 +18,7 @@ function App() {
             <Routes>
               <Route path="/" element={<StudentPage />} />
               <Route path="/students" element={<StudentPage />} />
-              <Route path="/chat" element={<ChatPage />} />
+              <Route path="/thread/:studentId" element={<ThreadPage />} />
             </Routes>
           </div>
         </Router>

@@ -58,7 +58,7 @@ function AddStudentForm() {
 			  name="name"
 			  value={formData.name}
 			  onChange={handleChange}
-			  feedbackValid="Looks good!"
+			  feedbackInvalid="Input full name."
 			  id="validationTooltip01"
 			  label="Full name"
 			  required
@@ -78,6 +78,7 @@ function AddStudentForm() {
 				id="validationTooltipUsername"
 				required
 				tooltipFeedback
+				defaultValue=""
 			  />
 			</CInputGroup>
 		  </CCol>
