@@ -9,8 +9,8 @@ function ThreadList({ onSelectThread }) {
       <h2 className="text-xl font-bold mb-2">Chat Threads</h2>
       {students.map((student) => (
         <div
-          key={student.id}
-          onClick={() => onSelectThread(student.id)}
+          key={student.studentId}
+          onClick={() => onSelectThread(student.studentId)}
           className="p-2 cursor-pointer hover:bg-gray-300"
         >
           {student.name}

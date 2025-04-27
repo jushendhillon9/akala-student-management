@@ -6,9 +6,9 @@ export const ChatContext = createContext();
 
 export function ChatProvider({ children }) {
   const { students } = useContext(StudentContext);
-  const [threads, setThreads] = useLocalStorage('chatThreads', () =>
+  const [threads, setThreads] = useLocalStorage("chatThreads", () =>
     students.map((student) => ({
-      studentId: student.id,
+      studentId: student.studentId,
       messages: [
         { sender: 'student', text: `Hi, I need help with ${student.course}.`, timestamp: new Date().toISOString() },
       ],
