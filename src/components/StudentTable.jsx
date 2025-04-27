@@ -88,7 +88,7 @@ const StudentTable = () => {
   };
 
   return (
-    <div>
+    <div className = "studentTableView">
       <CInputGroup className="mb-3" style={{ maxWidth: '400px' }}>
         <CInputGroupText>Search</CInputGroupText>
         <CFormInput
@@ -113,7 +113,9 @@ const StudentTable = () => {
           </CDropdownMenu>
         </CDropdown>
       </CInputGroup>
-      <CTable columns={columns} items={sortedItems}/>
+	  <div className = "overflowTable">
+		<CTable columns={columns} items={sortedItems}/>
+	  </div>
     </div>
   );
 };

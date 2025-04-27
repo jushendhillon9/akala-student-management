@@ -44,11 +44,11 @@ function ConversationView({ selectedThread, selectedStudent }) {
   }
 
   return (
-    <div className="chat min-h-screen flex-1 flex flex-col bg-white p-4">
+    <div className="chat heightScreen flex-1 flex flex-col bg-white p-4">
       <div className="border-b pb-2 mb-2">
         <h2 className="text-lg font-bold">Chat with {selectedStudent.name}</h2>
       </div>
-      <div className="flex-1 overflow-y-auto">
+      <div className="overflow">
         {allMessages.length > 0 ? (
           allMessages.map((msg, idx) => (
             <div

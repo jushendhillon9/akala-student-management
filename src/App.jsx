@@ -13,7 +13,7 @@ function App() {
     <StudentProvider>
       <ChatProvider>
         <Router>
-          <div className="min-h-screen bg-gray-100">
+          <div className="screenHeight bg-gray-100">
             <SimpleSidebar />
             <Routes>
               <Route path="/" element={<StudentPage />} />

@@ -24,7 +24,6 @@ function ThreadPage() {
 
   return (
     <div className = "viewPositioning">
-      <SimpleSidebar onSelectThread={selectedThreadId} />
       <ConversationView
         selectedThread={selectedThreadId}
         selectedStudent={selectedStudent}
