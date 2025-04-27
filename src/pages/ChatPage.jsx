@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import ThreadList from '../components/ThreadList';
+import ConversationView from '../components/ConversationView';
 
 function ChatPage() {
   const [selectedThread, setSelectedThread] = useState(null);
