@@ -37,7 +37,7 @@ const StudentTable = () => {
   ];
 
   const filteredItems = students.filter((item) =>
-    [item.name, item.id].some((field) => {
+    [item.name, item.studentId].some((field) => {
       const fieldStr = String(field);
       const searchStr = String(searchTerm);
       if (typeof field === 'string') {
