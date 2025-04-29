@@ -16,5 +16,5 @@ A responsive SPA built with React for managing students and simulating advisor-s
 ## Additional Features
 - Persisted data across reloads using localStorage.
 - Included initial sample data for usability.
-- <img width="1463" alt="README_Img2" src="https://github.com/user-attachments/assets/c4b349de-a157-4e70-9b74-b8aa968f46cb" />
-- <img width="1464" alt="README_Img1" src="https://github.com/user-attachments/assets/1586a45a-ae19-4d40-ae97-f31a222ff451" />
+<img width="1466" alt="Screenshot 2025-04-29 at 3 32 42 PM" src="https://github.com/user-attachments/assets/127ed7e5-041f-4583-ad7c-64e3e8e25c01" />
+
