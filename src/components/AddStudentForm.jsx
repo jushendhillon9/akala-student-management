@@ -47,7 +47,7 @@ function AddStudentForm() {
 
   return (
 		<CForm
-		  className="row g-3 needs-validation"
+		  className="row g-3 needs-validation addStudent"
 		  noValidate
 		  validated={validated}
 		  onSubmit={handleSubmit}
@@ -129,7 +129,7 @@ function AddStudentForm() {
 			/>
 		  </CCol>
 		  <CCol xs={12} className="position-relative">
-			<CButton color="primary" type="submit">
+			<CButton style={{ backgroundColor: '#007BFF', borderColor: '#007BFF', color: 'white', marginBottom: '10px'}} type="submit">
 			  Submit form
 			</CButton>
 		  </CCol>

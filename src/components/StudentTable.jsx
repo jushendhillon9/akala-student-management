@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import "../assets/css/StudentTable.css";
 import { StudentContext } from '../Contexts/StudentContext.jsx';
-import { CTable, CDropdown, CDropdownToggle, CDropdownMenu, CDropdownItem, CInputGroup, CInputGroupText, CFormInput } from '@coreui/react';
+import { CTable, CTableHead, CDropdown, CDropdownToggle, CDropdownMenu, CDropdownItem, CInputGroup, CInputGroupText, CFormInput } from '@coreui/react';
 
 const StudentTable = () => {
   const { students } = useContext(StudentContext);
@@ -12,27 +12,47 @@ const StudentTable = () => {
     {
       key: 'studentId',
       label: '#',
-      _props: { scope: 'col' },
+      _props: { scope: 'col', style: {
+        backgroundColor: '#007BFF',
+        color: 'white',
+      }
+	}
     },
     {
       key: 'name',
       label: 'Name',
-      _props: { scope: 'col' },
+      _props: { scope: 'col', style: {
+        backgroundColor: '#007BFF',
+        color: 'white',
+      }
+	}
     },
     {
       key: 'course',
       label: 'Course',
-      _props: { scope: 'col' },
+      _props: { scope: 'col', style: {
+        backgroundColor: '#007BFF',
+        color: 'white',
+      }
+	}
     },
     {
       key: 'grade',
       label: 'Grade',
-      _props: { scope: 'col' },
+      _props: { scope: 'col', style: {
+        backgroundColor: '#007BFF',
+        color: 'white',
+      }
+	}
     },
     {
       key: 'enrollmentDate',
       label: 'Enrollment Date',
-      _props: { scope: 'col' },
+      _props: { scope: 'col', style: {
+        backgroundColor: '#007BFF',
+        color: 'white',
+      }
+	}
     },
   ];
 
@@ -89,32 +109,36 @@ const StudentTable = () => {
 
   return (
     <div className = "studentTableView">
-      <CInputGroup className="mb-3" style={{ maxWidth: '400px' }}>
-        <CInputGroupText>Search</CInputGroupText>
-        <CFormInput
-          type="text"
-          placeholder="Search by name or ID..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <CDropdown className="marginLeft">
-          <CDropdownToggle color="secondary">Sort By</CDropdownToggle>
-          <CDropdownMenu>
-            {columns.map((column) => (
-              <CDropdownItem
-                key={column.key}
-                onClick={() => handleSort(column.key)}
-                style={{ cursor: 'pointer' }}
-                active={sortColumn === column.key}
-              >
-                {column.label}
-              </CDropdownItem>
-            ))}
-          </CDropdownMenu>
-        </CDropdown>
-      </CInputGroup>
+	  <div className = "tableHeaderAndFilter">
+	  	<h1 className= "tableHeader">Our Students</h1>
+		<CInputGroup className="mb-3 tableFilters" style={{ maxWidth: '400px' }}>
+			<CInputGroupText style={{ backgroundColor: '#007BFF', borderColor: '#007BFF', color: 'white' }}>Search</CInputGroupText>
+			<CFormInput
+			type="text"
+			placeholder="Search by name or ID..."
+			value={searchTerm}
+			onChange={(e) => setSearchTerm(e.target.value)}
+			/>
+			<CDropdown className="marginLeft">
+			<CDropdownToggle style={{ backgroundColor: '#007BFF', borderColor: '#007BFF', color: 'white' }}>Sort By</CDropdownToggle>
+			<CDropdownMenu>
+				{columns.map((column) => (
+				<CDropdownItem
+					key={column.key}
+					onClick={() => handleSort(column.key)}
+					style={{ cursor: 'pointer' }}
+					active={sortColumn === column.key}
+				>
+					{column.label}
+				</CDropdownItem>
+				))}
+			</CDropdownMenu>
+			</CDropdown>
+		</CInputGroup>
+	  </div>
 	  <div className = "overflowTable">
-		<CTable columns={columns} items={sortedItems}/>
+		<CTable columns={columns} items={sortedItems} stripedColumns hover bordered>
+		</CTable>
 	  </div>
     </div>
   );

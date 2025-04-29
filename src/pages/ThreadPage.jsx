@@ -23,7 +23,7 @@ function ThreadPage() {
   }, [studentId]);
 
   return (
-    <div className = "viewPositioning">
+    <div className = "viewPositioning2">
       <ConversationView
         selectedThread={selectedThreadId}
         selectedStudent={selectedStudent}

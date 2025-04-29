@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   CSidebar,
-  CSidebarBrand,
   CSidebarHeader,
   CSidebarNav,
   CNavItem,
@@ -11,21 +10,20 @@ import {
 } from '@coreui/react';
 import { CButton } from '@coreui/react';
 import { CIcon } from '@coreui/icons-react';
-import { cilSpeedometer, cilPuzzle, cilMenu } from '@coreui/icons';
+import PlatformGif from '../assets/PlatfromGif.gif'
+import { cilPencil, cilSchool, cilMenu } from '@coreui/icons';
 import { StudentContext } from '../Contexts/StudentContext';
 
 const SimpleSidebar = ({ onSelectThread }) => {
   const { students } = useContext(StudentContext);
   const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const getScreenClass = () => {
+    if (location.pathname === '/' || location.pathname.startsWith('/thread/')) {
+      return 'anchoring2';
+    }
+    return 'anchoring';
+  };
 
   const handleThreadSelect = (studentId) => {
     if (!studentId) {
@@ -43,27 +41,38 @@ const SimpleSidebar = ({ onSelectThread }) => {
       <CButton
         color="light"
         onClick={() => setVisible(!visible)}
+		className={getScreenClass()}
       >
         <CIcon icon={cilMenu} size="lg" />
       </CButton>
-      <CSidebar className="border-end" unfoldable visible={visible} onVisibleChange={setVisible} responsive="true">
-        <CSidebarHeader className="border-bottom">
-          <CSidebarBrand>SMP</CSidebarBrand>
+      <CSidebar className="border-end sideBar" unfoldable visible={visible} onVisibleChange={setVisible} responsive="true">
+        <CSidebarHeader className="border-bottom centerContent">
+			Text
+			<img className = "platformGif2" src={PlatformGif} alt="Sample GIF" />
         </CSidebarHeader>
         <CSidebarNav>
-          <CNavTitle>Navigation</CNavTitle>
+          <CNavTitle className = "navigation">Navigation</CNavTitle>
+		  <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? 'font-bold underline' : '')}
+          >
+			<CNavItem className="border-end sideBarItem" href="/">
+              <CIcon customClassName="nav-icon" icon={cilSchool} /> Home
+		    </CNavItem>	
+          </NavLink>
           <NavLink
             to="/students"
             className={({ isActive }) => (isActive ? 'font-bold underline' : '')}
           >
-            <CNavItem href="#">
-              <CIcon customClassName="nav-icon" icon={cilSpeedometer} /> Students
+            <CNavItem className="border-end sideBarItem" href="/students">
+              <CIcon customClassName="nav-icon" icon={cilSchool} /> Students
             </CNavItem>
           </NavLink>
           <CNavGroup
+		  	className="border-end sideBarItem"
             toggler={
               <>
-                <CIcon customClassName="nav-icon" icon={cilPuzzle} /> All threads
+                <CIcon customClassName="nav-icon" icon={cilPencil} /> All threads
               </>
             }
           >
@@ -80,7 +89,7 @@ const SimpleSidebar = ({ onSelectThread }) => {
                     className={({ isActive }) => (isActive ? 'font-bold' : '')}
                     onClick={() => handleThreadSelect(student.studentId)}
                   >
-                    <CNavItem href={`/thread/${student.studentId}`}>
+                    <CNavItem className = "sideBarThreads"href={`/thread/${student.studentId}`}>
                       <span className="nav-icon">
                         <span className="nav-icon-bullet"></span>
                       </span>{' '}
